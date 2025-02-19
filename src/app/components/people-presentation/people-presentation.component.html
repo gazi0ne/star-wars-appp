@@ -1,0 +1,51 @@
+<div class="people-presentation">
+  <h1 class="people-presentation__cards-title">Star Wars Characters</h1>
+
+  <!-- Filters -->
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Gender</mat-label>
+      <mat-select
+        [(ngModel)]="genderFilter"
+        class="form-select"
+        (selectionChange)="filterPeople()"
+      >
+        <mat-option value="">All Genders</mat-option>
+        <mat-option value="male">Male</mat-option>
+        <mat-option value="female">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="people-presentation__filter-group">
+    <mat-form-field appearance="outline">
+      <mat-label>Min BBY</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="minBBY"
+        (ngModelChange)="filterBirthYear()"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Max BBY</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="maxBBY"
+        (ngModelChange)="filterBirthYear()"
+      />
+    </mat-form-field>
+  </div>
+
+  <!-- Cards Display -->
+  <div class="people-presentation__cards-container">
+    <app-person-card
+      *ngFor="let person of filteredPeople"
+      [name]="person.name"
+      [birthYear]="person.birth_year"
+      [films]="person.films.length"
+      [gender]="person.gender"
+    ></app-person-card>
+  </div>
+</div>

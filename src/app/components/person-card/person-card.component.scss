@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+}
+
+.person-card {
+  color: #ffe81f;
+  background: #000;
+  border-radius: 8px;
+  border: 2px solid #222;
+  padding: 1.2rem;
+  text-align: center;
+  max-width: 300px;
+
+  &:hover {
+    border: 2px solid #ffe81f;
+    transition: all 0.25s ease-in-out;
+  }
+
+  &__header {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+
+  &__body {
+    font-size: 1rem;
+    p {
+      margin: 5px 0;
+    }
+  }
+}
